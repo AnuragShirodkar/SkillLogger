@@ -2,6 +2,12 @@
 
 Client-side **CAN ASC** toolkit: import Vector / CANalyzer `.asc` logs, inspect frames, define messages/signals in the UI, export a `.dbc`, and chart decoded signal values.
 
+## Download (Windows)
+
+**[Download SkillLogger Portable v1.0.0](https://github.com/AnuragShirodkar/SkillLogger/releases/download/v1.0.0/SkillLogger-Portable-1.0.0.exe)**
+
+Or open the [Releases page](https://github.com/AnuragShirodkar/SkillLogger/releases/tag/v1.0.0). Double-click the exe — no install, no Command Prompt. 64-bit Windows only. If SmartScreen warns you: More info → Run anyway.
+
 ## Stack
 
 - Vite + React + TypeScript
