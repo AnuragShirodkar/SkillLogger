@@ -101,7 +101,7 @@ export function parseAsc(text: string, fileName = 'log.asc'): AscParseResult {
     })
   }
 
-  return { header, frames, otherLines, fileName }
+  return { header, frames, otherLines, fileName, rawText: text }
 }
 
 export function framesToCsv(frames: CanFrame[]): string {

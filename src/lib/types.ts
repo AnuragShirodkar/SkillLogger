@@ -30,6 +30,8 @@ export interface AscParseResult {
   frames: CanFrame[]
   otherLines: number
   fileName: string
+  /** Original ASC file text for raw view. */
+  rawText: string
 }
 
 export type ByteOrder = 'intel' | 'motorola'
