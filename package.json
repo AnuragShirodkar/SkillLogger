@@ -2,6 +2,8 @@
   "name": "skilllogger",
   "private": true,
   "version": "1.0.0",
+  "description": "SkillLogger — Vector ASC viewer, DBC builder, and signal charts",
+  "author": "SkillLogger",
   "type": "module",
   "main": "electron/main.cjs",
   "scripts": {
@@ -9,7 +11,9 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview --host 127.0.0.1 --port 4173",
     "desktop": "concurrently -k -n web,desk -c teal,magenta \"npm run dev\" \"wait-on http://127.0.0.1:5173 && electron .\"",
-    "desktop:build": "npm run build && electron ."
+    "desktop:build": "npm run build && electron .",
+    "dist:win": "npm run build && electron-builder --win portable dir",
+    "dist:portable": "npm run build && electron-builder --win portable"
   },
   "dependencies": {
     "lucide-react": "^0.511.0",
@@ -23,8 +27,47 @@
     "@vitejs/plugin-react": "^4.7.0",
     "concurrently": "^9.1.2",
     "electron": "^35.2.1",
+    "electron-builder": "^26.15.3",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
     "wait-on": "^8.0.3"
+  },
+  "build": {
+    "appId": "in.skillicon.skilllogger",
+    "productName": "SkillLogger",
+    "copyright": "Copyright © SkillLogger",
+    "directories": {
+      "output": "release"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "dir",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "SkillLogger-${version}-${arch}.${ext}"
+    },
+    "portable": {
+      "artifactName": "SkillLogger-Portable-${version}.exe"
+    }
   }
 }

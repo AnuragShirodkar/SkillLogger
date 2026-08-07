@@ -30,13 +30,36 @@ npm install
 npm run desktop
 ```
 
-After a production build:
+### Portable USB / double-click (no Command Prompt)
+
+Build a Windows portable app once on a machine that has Node.js:
 
 ```bash
-npm run desktop:build
+npm install
+npm run dist:portable
 ```
 
-A plain **CLI** would not fit SkillLogger well (tables, DBC editor, and charts need a GUI). Desktop Electron keeps the full app offline on your PC.
+If packaging fails with a Windows `EPERM` rename error (antivirus locking files), build to a temp folder instead:
+
+```bat
+npm run build
+set CSC_IDENTITY_AUTO_DISCOVERY=false
+npx electron-builder --win portable --config.directories.output="%LOCALAPPDATA%\skilllogger-release"
+```
+
+Then copy from `release/` (or that temp folder):
+
+- **`SkillLogger-Portable-1.0.0.exe`** (~75 MB) — single file for USB, or
+- **`win-unpacked/`** folder — copy the whole folder to USB and run `SkillLogger.exe`
+
+On another Windows PC: plug in the USB and **double-click** the exe. No `npm`, no Command Prompt, no internet required for the app itself.
+
+Notes:
+
+- Built for **64-bit Windows** (`x64`)
+- First run on a new PC may show a SmartScreen warning (unsigned app) — choose More info → Run anyway
+- This is **not** an API transfer over USB — it is the full SkillLogger desktop app, offline
+- Do not commit `release/` binaries to Git (they are gitignored)
 
 ## Build
 

@@ -29,6 +29,7 @@ function createWindow() {
   if (isDev) {
     void win.loadURL(DEV_URL)
   } else {
+    // Packaged layout: electron/ and dist/ sit next to each other in the app bundle
     void win.loadFile(path.join(__dirname, '..', 'dist', 'index.html'))
   }
 }

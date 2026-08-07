@@ -26,6 +26,16 @@ This opens SkillLogger in its own window — you do not need Chrome/Edge. For a 
 npm run desktop:build
 ```
 
+### USB / no Command Prompt
+
+On a build PC:
+
+```bash
+npm run dist:portable
+```
+
+Copy `release/SkillLogger-Portable-1.0.0.exe` (or the `release/win-unpacked` folder) to a USB stick. On the target Windows PC, double-click the exe — no install, no CMD, no npm.
+
 ## First-time walkthrough
 
 ### 1. Import an ASC log
