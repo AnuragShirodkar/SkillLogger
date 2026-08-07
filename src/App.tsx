@@ -1,9 +1,10 @@
 import { useCallback, useState } from 'react'
-import { Activity, Cable, Database, FileSpreadsheet } from 'lucide-react'
+import { Activity, BookOpen, Cable, Database, FileSpreadsheet } from 'lucide-react'
 import { AscUploader } from './components/AscUploader'
 import { DbcEditor } from './components/DbcEditor'
-import { FrameTable } from './components/FrameTable'
+import { LogViewer } from './components/LogViewer'
 import { SignalChart } from './components/SignalChart'
+import { UserGuide } from './components/UserGuide'
 import { loadMessages } from './lib/dbcBuilder'
 import type { AscParseResult, DbcMessage } from './lib/types'
 
@@ -20,6 +21,9 @@ export default function App() {
       <header className="hero">
         <div className="hero__atmosphere" aria-hidden />
         <nav className="topnav">
+          <a href="#guide" className="topnav__link">
+            Guide
+          </a>
           <a href="#import" className="topnav__link">
             Import
           </a>
@@ -48,15 +52,25 @@ export default function App() {
               <FileSpreadsheet size={18} aria-hidden />
               Open ASC file
             </a>
-            <a className="btn btn--ghost" href="#dbc">
-              <Database size={18} aria-hidden />
-              Define DBC
+            <a className="btn btn--ghost" href="#guide">
+              <BookOpen size={18} aria-hidden />
+              New user guide
             </a>
           </div>
         </div>
       </header>
 
       <main>
+        <section id="guide" className="section">
+          <div className="section__head">
+            <h2>
+              <BookOpen size={20} aria-hidden /> User guide
+            </h2>
+            <p>Short walkthrough if you are opening SkillLogger for the first time.</p>
+          </div>
+          <UserGuide />
+        </section>
+
         <section id="import" className="section">
           <div className="section__head">
             <h2>
@@ -72,9 +86,13 @@ export default function App() {
             <h2>
               <Activity size={20} aria-hidden /> Frames
             </h2>
-            <p>Human-readable CAN traffic with filters and CSV export.</p>
+            <p>Switch tabs to view readable frames, raw ASC text, or both side by side.</p>
           </div>
-          <FrameTable frames={asc?.frames ?? []} fileName={asc?.fileName ?? 'frames'} />
+          <LogViewer
+            frames={asc?.frames ?? []}
+            fileName={asc?.fileName ?? 'frames'}
+            rawText={asc?.rawText ?? ''}
+          />
         </section>
 
         <section id="dbc" className="section">

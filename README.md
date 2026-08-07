@@ -28,9 +28,15 @@ npm run preview
 
 ## Features
 
-1. **Import** — drag/drop or browse for `.asc`; sample log under `public/samples/demo.asc`
-2. **Frames** — filterable table (time, channel, ID, Rx/Tx, DLC, data) + CSV export
-3. **Decode & DBC** — message/signal editor with `localStorage` persistence, `.dbc` download, multi-signal time series + PNG export, ID rate overview
+1. **User guide** — in-app walkthrough for first-time users (`USER_GUIDE.md` on GitHub)
+2. **Import** — drag/drop or browse for `.asc`; sample log under `public/samples/demo.asc`
+3. **Frames** — multi-tab **Readable** / **Raw ASC** / **Split view**, filters, CSV export
+4. **Decode & DBC** — message/signal editor with `localStorage` persistence and `.dbc` download
+5. **Charts** — multi-signal time series + PNG export, ID rate overview
+
+## New users
+
+See the **Guide** section in the app, or read [USER_GUIDE.md](USER_GUIDE.md).
 
 ## Notes
 
