@@ -12,12 +12,31 @@ Everything runs in the browser — no backend required.
 
 ## Run locally
 
+### In the browser
+
 ```bash
 npm install
 npm run dev
 ```
 
-Then open the URL Vite prints (usually `http://localhost:5173`).
+Open the URL Vite prints (usually `http://127.0.0.1:5173`).
+
+### As a desktop app (no browser window)
+
+Best for day-to-day use — same UI in its own window:
+
+```bash
+npm install
+npm run desktop
+```
+
+After a production build:
+
+```bash
+npm run desktop:build
+```
+
+A plain **CLI** would not fit SkillLogger well (tables, DBC editor, and charts need a GUI). Desktop Electron keeps the full app offline on your PC.
 
 ## Build
 

@@ -4,12 +4,27 @@ SkillLogger is a browser tool for **Vector / CANalyzer ASC** logs. You can view 
 
 ## Start the app
 
+### Browser
+
 ```bash
 npm install
 npm run dev
 ```
 
 Open the URL Vite prints (usually `http://127.0.0.1:5173/`).
+
+### Desktop window (recommended for daily use)
+
+```bash
+npm install
+npm run desktop
+```
+
+This opens SkillLogger in its own window — you do not need Chrome/Edge. For a built UI:
+
+```bash
+npm run desktop:build
+```
 
 ## First-time walkthrough
 
